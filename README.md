@@ -94,3 +94,9 @@ pnpm dev          # Start all dev servers
 pnpm build        # Build all apps and packages
 pnpm typecheck    # Type-check all workspaces
 ```
+
+---
+
+## 📄 License
+
+MIT. See [LICENSE](LICENSE) for details.
