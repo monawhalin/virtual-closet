@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Environment variables (contains sensitive credentials — never commit)
+.env
+.env.*
+!.env.example
+
+# Build outputs
+dist/
+build/
+web-build/
+
+# Turbo cache
+.turbo/
+
+# Expo
+.expo/
+expo-env.d.ts
+
+# macOS
+.DS_Store
+*.pem
+
+# Claude Code project memory
+.claude/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Native mobile keys
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# Generated native folders
+apps/mobile/ios/
+apps/mobile/android/

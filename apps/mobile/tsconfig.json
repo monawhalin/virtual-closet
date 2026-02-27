@@ -1,0 +1,21 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": ["./*"],
+      "@vc/shared": ["../../packages/shared/src/index.ts"],
+      "@vc/outfit-gen": ["../../packages/outfit-gen/src/index.ts"],
+      "@vc/ui-shared": ["../../packages/ui-shared/src/index.ts"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "../../packages/shared/src",
+    "../../packages/outfit-gen/src",
+    "../../packages/ui-shared/src"
+  ]
+}

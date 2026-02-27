@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@vc/shared": ["../../packages/shared/src/index.ts"],
+      "@vc/outfit-gen": ["../../packages/outfit-gen/src/index.ts"],
+      "@vc/ui-shared": ["../../packages/ui-shared/src/index.ts"]
+    }
+  }
+}

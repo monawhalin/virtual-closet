@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archive Item Detail View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#195de6",
+                        "background-light": "#ffffff",
+                        "background-dark": "#111621",
+                        "text-primary": "#1a1a1a",
+                        "text-secondary": "#666666",
+                        "surface-light": "#f8f9fa",
+                        "surface-dark": "#1e2433",
+                        "off-white": "#fcfbf9",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    boxShadow: {
+                        "soft": "0 4px 20px -2px rgba(0, 0, 0, 0.05)",
+                        "button": "0 4px 12px rgba(0, 0, 0, 0.15)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-off-white dark:bg-background-dark text-text-primary dark:text-gray-100 font-sans antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl overflow-hidden bg-off-white dark:bg-background-dark">
+<header class="sticky top-0 z-30 pt-6 pb-2 px-6 flex items-center justify-between">
+<button class="flex items-center justify-center w-10 h-10 -ml-2 rounded-full text-text-primary dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex gap-3">
+<button class="flex items-center justify-center w-10 h-10 rounded-full text-text-primary dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-[24px]">edit</span>
+</button>
+<button class="flex items-center justify-center w-10 h-10 rounded-full text-text-primary dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto no-scrollbar pb-32">
+<div class="relative w-full aspect-[4/5] flex items-center justify-center bg-off-white dark:bg-surface-dark mb-6">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-off-white/20 dark:to-background-dark/20 z-10 pointer-events-none"></div>
+<img alt="Saint Laurent Blazer" class="w-[85%] h-[85%] object-contain drop-shadow-xl z-0 transform hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjKy53MNMahSvz-W4uQvsZilwoTJ-o0I19E_XmQne1C9_567vwz4OvbkK1kQKhDyLLNY1HrBCJeGZor0Ioup6H6fbc0M9DCr2KOSaV3ezEUWewndrb7qE4t8yubsKWyV6ZQnv9tGy6PeRbwK917BdWa7sD_9TRSdC65SbAfG7kDYrlBbh_MuzQsMkAv3-hR3-KnBe4nuwV4dJl3bkqRpK6Lb1rroLaMxATKqaDtSoBEXkm5QkG8EoGF9qkhiAacH1ZMmmROvCzyyU"/>
+</div>
+<div class="px-8 flex flex-col items-center text-center space-y-2 mb-10">
+<h2 class="font-serif text-sm font-medium tracking-widest text-text-secondary dark:text-gray-400 uppercase">Saint Laurent</h2>
+<h1 class="font-serif text-3xl font-medium text-text-primary dark:text-white leading-tight">Saint Laurent Blazer</h1>
+<p class="font-serif italic text-lg text-text-secondary dark:text-gray-400 mt-2 px-6 leading-relaxed">"Pairs well with vintage denim and silk scarves"</p>
+</div>
+<div class="px-6 mb-8">
+<h3 class="font-sans text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-gray-500 mb-4 pl-2">Wardrobe Analytics</h3>
+<div class="grid grid-cols-3 gap-3">
+<div class="bg-white dark:bg-surface-dark p-4 rounded-xl shadow-soft flex flex-col items-center justify-center text-center gap-1">
+<span class="font-serif text-2xl font-medium text-text-primary dark:text-white">3</span>
+<span class="text-[10px] uppercase tracking-wide text-text-secondary dark:text-gray-400 font-sans font-medium">Wears</span>
+</div>
+<div class="bg-white dark:bg-surface-dark p-4 rounded-xl shadow-soft flex flex-col items-center justify-center text-center gap-1">
+<span class="font-serif text-2xl font-medium text-text-primary dark:text-white">$450</span>
+<span class="text-[10px] uppercase tracking-wide text-text-secondary dark:text-gray-400 font-sans font-medium">Cost/Wear</span>
+</div>
+<div class="bg-white dark:bg-surface-dark p-4 rounded-xl shadow-soft flex flex-col items-center justify-center text-center gap-1">
+<span class="font-serif text-2xl font-medium text-text-primary dark:text-white">Sept 12</span>
+<span class="text-[10px] uppercase tracking-wide text-text-secondary dark:text-gray-400 font-sans font-medium">Last Worn</span>
+</div>
+</div>
+</div>
+<div class="px-6 mb-8">
+<h3 class="font-sans text-xs font-semibold uppercase tracking-wider text-text-secondary dark:text-gray-500 mb-4 pl-2">Item Details</h3>
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-soft p-6 space-y-6">
+<div class="flex flex-col gap-1 border-b border-gray-50 dark:border-gray-800 pb-4">
+<span class="font-serif text-sm font-medium text-text-secondary dark:text-gray-400">Season</span>
+<span class="font-sans text-base text-text-primary dark:text-white">Autumn/Winter 2023</span>
+</div>
+<div class="flex flex-col gap-1 border-b border-gray-50 dark:border-gray-800 pb-4">
+<div class="flex justify-between items-center">
+<span class="font-serif text-sm font-medium text-text-secondary dark:text-gray-400">URL</span>
+<a class="text-xs font-sans text-text-secondary hover:text-text-primary dark:text-gray-400 dark:hover:text-white flex items-center gap-1" href="#">
+                    ysl.com <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+<span class="font-sans text-base text-text-primary dark:text-white truncate">https://www.ysl.com/en-us/blazer-in-wool-gabardine</span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-baseline">
+<span class="font-serif text-sm font-medium text-text-secondary dark:text-gray-400">Tags</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-gray-50 dark:bg-gray-800 rounded-full text-xs font-sans text-text-primary dark:text-gray-200">#Outerwear</span>
+<span class="px-3 py-1.5 bg-gray-50 dark:bg-gray-800 rounded-full text-xs font-sans text-text-primary dark:text-gray-200">#Wool</span>
+<span class="px-3 py-1.5 bg-gray-50 dark:bg-gray-800 rounded-full text-xs font-sans text-text-primary dark:text-gray-200">#Office</span>
+</div>
+<div class="mt-2 pt-3 border-t border-dashed border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-[16px] text-primary/70">auto_awesome</span>
+<span class="text-[10px] font-sans font-bold text-primary/70 tracking-widest uppercase">Suggested</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-sans text-text-secondary dark:text-gray-400 hover:border-primary/30 hover:text-primary hover:bg-primary/5 transition-all">#Tailored</button>
+<button class="px-3 py-1.5 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-sans text-text-secondary dark:text-gray-400 hover:border-primary/30 hover:text-primary hover:bg-primary/5 transition-all">#Minimalist</button>
+<button class="px-3 py-1.5 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-sans text-text-secondary dark:text-gray-400 hover:border-primary/30 hover:text-primary hover:bg-primary/5 transition-all">#SaintLaurent</button>
+<button class="px-3 py-1.5 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-sans text-text-secondary dark:text-gray-400 hover:border-primary/30 hover:text-primary hover:bg-primary/5 transition-all">#QuietLuxury</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-8 flex flex-col items-center gap-4 mt-4">
+<button class="w-full py-4 bg-text-primary dark:bg-white text-white dark:text-text-primary rounded-full shadow-button hover:bg-black dark:hover:bg-gray-200 transition-all transform active:scale-[0.98]">
+<span class="font-sans font-medium tracking-wide">Save to Capsule</span>
+</button>
+<button class="text-sm font-medium text-text-secondary dark:text-gray-400 hover:text-text-primary dark:hover:text-white transition-colors border-b border-transparent hover:border-text-secondary">
+                Archive Item
+            </button>
+</div>
+</main>
+<nav class="absolute bottom-0 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-gray-100 dark:border-gray-800 z-40 pb-6 pt-2">
+<div class="flex justify-around items-center px-2">
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-[24px] text-gray-400 group-hover:text-text-primary dark:group-hover:text-white transition-colors">checkroom</span>
+<span class="text-[10px] font-sans font-medium text-gray-400 group-hover:text-text-primary dark:group-hover:text-white">Closet</span>
+</a>
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-[24px] text-gray-400 group-hover:text-text-primary dark:group-hover:text-white transition-colors">styler</span>
+<span class="text-[10px] font-sans font-medium text-gray-400 group-hover:text-text-primary dark:group-hover:text-white">Outfits</span>
+</a>
+<button class="flex items-center justify-center w-12 h-12 -mt-6 rounded-full bg-text-primary dark:bg-white text-white dark:text-text-primary shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-[24px] text-gray-400 group-hover:text-text-primary dark:group-hover:text-white transition-colors">grid_view</span>
+<span class="text-[10px] font-sans font-medium text-gray-400 group-hover:text-text-primary dark:group-hover:text-white">Capsules</span>
+</a>
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-[24px] text-gray-400 group-hover:text-text-primary dark:group-hover:text-white transition-colors">person</span>
+<span class="text-[10px] font-sans font-medium text-gray-400 group-hover:text-text-primary dark:group-hover:text-white">Profile</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

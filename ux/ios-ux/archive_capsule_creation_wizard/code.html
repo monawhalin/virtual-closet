@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archive Capsule Creation Wizard</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#195de6",
+              "background-light": "#f6f6f8",
+              "background-dark": "#111621",
+            },
+            fontFamily: {
+              "sans": ["Inter", "sans-serif"],
+              "serif": ["Playfair Display", "serif"],
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-white dark:bg-background-dark shadow-2xl">
+<div class="sticky top-0 z-30 flex items-center bg-white/90 dark:bg-background-dark/90 backdrop-blur-md p-4 pb-2 justify-between border-b border-slate-100 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center justify-start cursor-pointer hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-serif font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Create Capsule</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="text-primary text-base font-sans font-bold leading-normal tracking-[0.015em] shrink-0 hover:text-primary/80 transition-colors">Save</button>
+</div>
+</div>
+<div class="flex w-full flex-row items-center justify-center gap-3 py-6 bg-white dark:bg-background-dark">
+<div class="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+<div class="h-1.5 w-8 rounded-full bg-primary"></div>
+</div>
+<div class="flex flex-col flex-1 px-4 pb-32">
+<div class="animate-fade-in-up">
+<h2 class="text-slate-900 dark:text-slate-100 tracking-tight text-[32px] font-serif font-bold leading-tight text-left pb-2">Step 3: Curate Your Look</h2>
+<p class="text-slate-500 dark:text-slate-400 text-base font-sans font-normal leading-normal pb-6">Select items to add to your "Paris Fall '24" capsule.</p>
+</div>
+<div class="mb-8">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">auto_awesome</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-serif font-bold leading-tight tracking-[-0.015em]">Suggested for You</h3>
+</div>
+<button class="text-xs font-sans font-semibold text-primary uppercase tracking-wider">View All</button>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 -mx-4 px-4 snap-x">
+<div class="relative flex-none w-36 snap-start group cursor-pointer">
+<div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+<img alt="Trench Coat" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Beige trench coat on hanger" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjypicn9f1DOhQPX_lUXHsRe5PuOuc-5T3SrwzwrwSq72mQEMmI6-jkqx0CsY44MHQ4YtRcsEVcqVG3XcDGjByzXFfYsgpL2t-LSAqLBbmcRnh8BQ1FNKXPA6Bpqz-oGK099mp4yHT1wPtu34orOYuLmWEUYo37PAFjPeQlzk_ezYCHV4fqmvOj92BPIogaHJ2PGja2zTZkpNcKBhIsOQkV5emDIjx6jxzTB7eD9fFQLfRl4h4ekZtHPzOk1uTc-CRZXVPXdCE1Q4"/>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/60 backdrop-blur rounded-full p-1.5 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm block">add</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-sans font-medium text-slate-900 dark:text-slate-100 truncate">Burberry Trench</p>
+<p class="text-xs font-sans text-slate-500 dark:text-slate-400">Rain ready</p>
+</div>
+<div class="relative flex-none w-36 snap-start group cursor-pointer">
+<div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+<img alt="White Shirt" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="White oversized shirt folded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8Mj1TWtk9va1n0kr7ckWDRfHN4Bu87YlFKh_MxdXSt5NPR7bPcwOW8flpuBCUiqbvJinCiKKMD-PmLnznWz96i_FHeoInGPveBjXTwrQqbkon1Fun0X-JvCI0IZC9Ebw5bqXM25mwm0xFV2jx5w1utInYSNIE5KYtv4DeoaFBd0NxYh0L3MK_msFYkChCIgCYSumnknw0tX577aVKIcyDxtEulNsXWeZu6bUMExDunVZLvgq-AB0uDsVRS7jPgPQ02KLfpWwYg08"/>
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center backdrop-blur-[1px] opacity-100">
+<span class="material-symbols-outlined text-white text-3xl drop-shadow-md">check_circle</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-sans font-medium text-slate-900 dark:text-slate-100 truncate">Oversized Poplin</p>
+<p class="text-xs font-sans text-slate-500 dark:text-slate-400">Added</p>
+</div>
+<div class="relative flex-none w-36 snap-start group cursor-pointer">
+<div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+<img alt="Denim Jeans" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Blue denim jeans texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU2aN62T7dgsOh9w1qPEp-clHvJdSYZmkC7lPdG_jVt49qN-bBF7kpluS_O1VOgLl3vzUsEZLGx_DcI-kSa2cQYOr65ZCSCHl8hiHmnSxusdVihf4PQjsCpVRAAYgZl19P0liAxFs9T2RN80dzK1S-XojKpL0NRPhhyxqEXV-Nx77WU_VrZdSQ1LCzdscXY9Af0unwWwS3-eHHPZrURuqEdvbpaB_1ibuYoryQsVS5JuRBMuUKfTBZIxoou5H9h3u6JGJusTjDDCA"/>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/60 backdrop-blur rounded-full p-1.5 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm block">add</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-sans font-medium text-slate-900 dark:text-slate-100 truncate">Vintage 501s</p>
+<p class="text-xs font-sans text-slate-500 dark:text-slate-400">Daily wear</p>
+</div>
+</div>
+</div>
+<div class="sticky top-[68px] z-20 bg-white dark:bg-background-dark pb-4 pt-2 -mx-4 px-4 border-b border-slate-100 dark:border-slate-800/50 mb-6 flex gap-6 overflow-x-auto hide-scrollbar">
+<button class="text-primary font-sans font-semibold text-sm whitespace-nowrap border-b-2 border-primary pb-2">All Items</button>
+<button class="text-slate-500 dark:text-slate-400 font-sans font-medium text-sm whitespace-nowrap pb-2 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Tops</button>
+<button class="text-slate-500 dark:text-slate-400 font-sans font-medium text-sm whitespace-nowrap pb-2 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Bottoms</button>
+<button class="text-slate-500 dark:text-slate-400 font-sans font-medium text-sm whitespace-nowrap pb-2 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Outerwear</button>
+<button class="text-slate-500 dark:text-slate-400 font-sans font-medium text-sm whitespace-nowrap pb-2 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Shoes</button>
+<button class="text-slate-500 dark:text-slate-400 font-sans font-medium text-sm whitespace-nowrap pb-2 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Accessories</button>
+</div>
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-serif font-bold leading-tight tracking-[-0.015em] mb-4">Your Closet</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="group relative cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-800 ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-background-dark transition-all">
+<img alt="Handbag" class="w-full h-full object-cover" data-alt="Black leather handbag luxury" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzqJ56TiR4OQCn21SLzfvLc9qKCii9OlpPXPJj4Q4aoPkUMrGqr3Nrnmv10zC8mhd3L6oQ52oV9b0sfezfKGzKjVsfC0je4vzlXR5s_qK_wy7SWfLw2Atzc2xYpduM7b4e_LgQWlnm23myBkmX5YqqU8bFIliGuL-9chS7ObxNyOzr9x57PS7yKjK04XglEyUhuUOSNsG6LK_Ipl8G4tjQNW5W_nY4qbmwI-gE-r21CfZFcEhb-xtX7Mp_EcOQpDBARBFdmVpSgO8"/>
+<div class="absolute top-2 right-2 bg-primary text-white rounded-full p-1 shadow-md">
+<span class="material-symbols-outlined text-base block">check</span>
+</div>
+</div>
+<div class="mt-2 flex justify-between items-start">
+<div>
+<p class="text-sm font-sans font-semibold text-slate-900 dark:text-slate-100">Celine Triomphe</p>
+<p class="text-xs font-sans text-slate-500 dark:text-slate-400">Accessories</p>
+</div>
+</div>
+</div>
+<div class="group relative cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-800 hover:ring-2 hover:ring-primary/50 hover:ring-offset-2 hover:ring-offset-white dark:hover:ring-offset-background-dark transition-all">
+<img alt="Tote Bag" class="w-full h-full object-cover opacity-90 group-hover:opacity-100" data-alt="Beige leather tote bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlbxmuH1qC3syA55RqLZudkVWZDzn8Hyv8ixgBfOCyJKCsMpFAY6zJAhisB0D5cbN06wMak0GkV9pe4yv1CxVE9pGG4XnvR8mjH26hxpMTOkifJuwL1u9-n9OXGrLZFLZqSctW3JdYI2whBVEkhYe-hwDtcfjzeAaSdsIyjnZNSGcZR2aAcnL6X9m5ci5acd3KeuuwPJlMD2_2Jk_kUTWSvOr1N69YHuf_uIH_Xi-7Q1pnlQgosU59mpRth0baAKXVRJSrqkiUx7s"/>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/60 backdrop-blur rounded-full p-1.5 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm text-slate-900 dark:text-white block">add</span>
+</div>
+</div>
+<div class="mt-2 flex justify-between items-start">
+<div>
+<p class="text-sm font-sans font-semibold text-slate-900 dark:text-slate-100">Canvas Tote</p>
+<p class="text-xs font-sans text-slate-500 dark:text-slate-400">Bags</p>
+</div>
+</div>
+</div>
+<div class="group relative cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-800 hover:ring-2 hover:ring-primary/50 hover:ring-offset-2 hover:ring-offset-white dark:hover:ring-offset-background-dark transition-all">
+<img alt="Boots" class="w-full h-full object-cover opacity-90 group-hover:opacity-100" data-alt="Brown leather boots" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6RLkTFRp_OTRvUBTCe8B3zfGy4WhwUMF2PXmHolzqPuJ5B2uN99aojptVy4Ps_vJ3CmLfeZW2GiIQkLQXo1nvILbz04KeCXyUt6OoGTU4XHRZ4hWCCYgqEceG6_RLRZqi2wxqAOQ4uVm3Aq3EeM9LazrhTdgv4oFa_3ZvrFcvlZ72kE3KB8jriYFfd7WVs0sEjHvgjgJiECyY2jvmlIXctZUPFmcREZHonuIx81uYbCQB5OheINGJ-bFix57A2yvK2NKuzi1AO3Y"/>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/60 backdrop-blur rounded-full p-1.5 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm text-slate-900 dark:text-white block">add</span>
+</div>
+</div>
+<div class="mt-2 flex justify-between items-start">
+<div>
+<p class="text-sm font-sans font-semibold text-slate-900 dark:text-slate-100">Chelsea Boots</p>
+<p class="text-xs font-sans text-slate-500 dark:text-slate-400">Shoes</p>
+</div>
+</div>
+</div>
+<div class="group relative cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-800 ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-background-dark transition-all">
+<img alt="White Shirt" class="w-full h-full object-cover" data-alt="White button up shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd4TDcnbQ8WLclBSj1XQiAC2fEqCisjBaRyLXEi0UGbyxrLk8QvPPNaRbaau79V9v3bXpdcdcAapFGbNOY9O3b6sBMgvWyZ-sRBmDo6XdtC3f4yxy614aXnzpZ07DCKd-C5dCa7ihEk6K5MGuafDy31yroEq8p8k3sWmkhOwool42ZAV_cHj2WyvDwnWf1GCrisjPVgQRu_eBM8WdAocofKe-2C1y1SA_PIDcF_IQ6DefgtMPKHEiAFD0nervViBiexU-V0cnUB4o"/>
+<div class="absolute top-2 right-2 bg-primary text-white rounded-full p-1 shadow-md">
+<span class="material-symbols-outlined text-base block">check</span>
+</div>
+</div>
+<div class="mt-2 flex justify-between items-start">
+<div>
+<p class="text-sm font-sans font-semibold text-slate-900 dark:text-slate-100">Silk Blouse</p>
+<p class="text-xs font-sans text-slate-500 dark:text-slate-400">Tops</p>
+</div>
+</div>
+</div>
+<div class="group relative cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-800 hover:ring-2 hover:ring-primary/50 hover:ring-offset-2 hover:ring-offset-white dark:hover:ring-offset-background-dark transition-all">
+<img alt="T-Shirt" class="w-full h-full object-cover opacity-90 group-hover:opacity-100" data-alt="White casual t-shirt on hanger" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtheP6gmOjtAmNIOQB2mt5VE2LU54u5u1kW5-awJZ23Wdo8FsmrcS69KY1Mvr7RTUu6FwdtWWqPiG2k-wL2M1nicUjTdn4T5NrRFg7cM0b52P2DQ_-ZTezpEalaKK_o9nJR3A0ISTY4np8Xm7J6zlI35D_x8mF1BnzdAH-uXwOGexaV3jXzQBk6ugIl9iZG2vOHJY2aeJ9BasQlO7wrcQ8sYkZjfS2WOSC34HJVnyDZNh9OuqKTs4GoWswtAuarZH8XXnwFWcrmro"/>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/60 backdrop-blur rounded-full p-1.5 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm text-slate-900 dark:text-white block">add</span>
+</div>
+</div>
+<div class="mt-2 flex justify-between items-start">
+<div>
+<p class="text-sm font-sans font-semibold text-slate-900 dark:text-slate-100">Cotton Tee</p>
+<p class="text-xs font-sans text-slate-500 dark:text-slate-400">Tops</p>
+</div>
+</div>
+</div>
+<div class="group relative cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-800 hover:ring-2 hover:ring-primary/50 hover:ring-offset-2 hover:ring-offset-white dark:hover:ring-offset-background-dark transition-all">
+<img alt="Blazer" class="w-full h-full object-cover opacity-90 group-hover:opacity-100" data-alt="Black wool blazer jacket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPYiWEpS7mCDsXlkRQUKnr4SpISpFkuwzlys4yC4Pyk4MjAouqY3WWS0_ZgjxEnIfKsG-UTOnx6EqDbx71WSIQiyxZAuE9KnbDLHuHIcTDunGQlDGiXNZYRfBwYhhHT2G8P8Jev5mskMLD-1xkCkjDLP3zjVucZuH1JrPZoP1vj-0VsWwl-ZXOOdYsLoTTQ_-YJrIdX5vsaQFDFdGy3Zg-6vkQTn7nX55AwTh_EalxohlIAMO1ske9IAUQ-8MKHuE_d_-AAFcEoC0"/>
+<div class="absolute top-2 right-2 bg-white/90 dark:bg-black/60 backdrop-blur rounded-full p-1.5 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm text-slate-900 dark:text-white block">add</span>
+</div>
+</div>
+<div class="mt-2 flex justify-between items-start">
+<div>
+<p class="text-sm font-sans font-semibold text-slate-900 dark:text-slate-100">Wool Blazer</p>
+<p class="text-xs font-sans text-slate-500 dark:text-slate-400">Outerwear</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 z-40">
+<div class="max-w-md mx-auto relative">
+<div class="absolute bottom-4 left-4 right-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl shadow-xl p-4 flex items-center justify-between cursor-pointer group transition-all hover:shadow-2xl">
+<div class="flex items-center gap-3">
+<div class="relative w-12 h-12">
+<div class="absolute left-0 top-0 w-8 h-8 rounded-full border-2 border-slate-900 dark:border-white overflow-hidden z-20">
+<img class="w-full h-full object-cover" data-alt="Small thumbnail of trench coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnbuUooJbPiDZPRtSkD6JWoM1sckjbRm8UXmWHqbNzyyWi_lO4AvgPVPQk1s8sQFZyJ9Lklk7bQikeF-WL1exywopM5-6FNdcps48DfuZUsOAxkYY_Yf16ksAz7qmbmgMGUJCGZ_1LbY26s_iVLE6_0cpd-5vdkWXq1imc2EJZHiL3qCh60u1HxWEtP7Mwk-CvYTlWp76Jp2RP2azt5H9XWRq4X7COGuERmJXnfFdpAMdnb3J0b6lDyanvajEX6C-TlT3f2UMvqxQ"/>
+</div>
+<div class="absolute left-3 top-0 w-8 h-8 rounded-full border-2 border-slate-900 dark:border-white overflow-hidden z-10 bg-slate-700">
+<img class="w-full h-full object-cover" data-alt="Small thumbnail of handbag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLTiwzUKRD94qHw5R5DLxfAfTkmcr9uSy8gsait-Q7jL5fRelceulCzPDmmvkZZF4pNmMiLZx2IjhoYvjtTYuMFaPVQz5KmR4ncuuwCmv5NusEQ4cPvP_3nOqy4RdMUwIjKnvScZjwuXAPjC2i30E2iqSf_w8eB28M9WoreYA6RG1L0gTfAg6Ssbld8R5BM08zuVBr2tJmsi8mEcz_DE1W66RpEmeEQcjl6_NCc4qJCfNh2FwRo5gkUd0-Mb1r6QydaOLg96En_Ys"/>
+</div>
+<div class="absolute left-6 top-0 w-8 h-8 rounded-full border-2 border-slate-900 dark:border-white overflow-hidden z-0 bg-slate-600 flex items-center justify-center text-[10px] font-bold">
+                                +3
+                             </div>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-sans font-bold">5 Items Selected</span>
+<span class="text-xs font-sans opacity-70">Tap to preview capsule</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="h-8 w-[1px] bg-white/20 dark:bg-slate-900/20"></div>
+<button class="flex items-center justify-center size-10 rounded-full bg-primary hover:bg-primary/90 text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

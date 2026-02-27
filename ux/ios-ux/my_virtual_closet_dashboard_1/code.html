@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Virtual Closet Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#195de6",
+                        "background-light": "#ffffff",
+                        "background-dark": "#111621",
+                        "text-primary": "#1a1a1a",
+                        "text-secondary": "#666666",
+                        "surface-light": "#f8f9fa",
+                        "surface-dark": "#1e2433",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-text-primary dark:text-gray-100 font-sans antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark">
+<header class="sticky top-0 z-30 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md pt-6 pb-2 px-6">
+<div class="flex items-center justify-between mb-4">
+<h1 class="font-serif text-3xl font-bold tracking-tight text-text-primary dark:text-white italic">My Closet</h1>
+<div class="flex gap-3">
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-light dark:bg-surface-dark text-text-primary dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-[24px]">search</span>
+</button>
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-text-primary dark:bg-primary text-white shadow-lg hover:bg-gray-800 dark:hover:bg-blue-600 transition-all">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</button>
+</div>
+</div>
+<nav class="flex border-b border-gray-100 dark:border-gray-800">
+<a class="flex-1 pb-3 text-center border-b-2 border-text-primary dark:border-primary" href="#">
+<span class="font-serif text-base font-medium tracking-wide text-text-primary dark:text-white">CLOSET</span>
+</a>
+<a class="flex-1 pb-3 text-center border-b-2 border-transparent hover:text-text-primary dark:hover:text-white transition-colors" href="#">
+<span class="font-serif text-base font-medium tracking-wide text-text-secondary dark:text-gray-400">OUTFITS</span>
+</a>
+<a class="flex-1 pb-3 text-center border-b-2 border-transparent hover:text-text-primary dark:hover:text-white transition-colors" href="#">
+<span class="font-serif text-base font-medium tracking-wide text-text-secondary dark:text-gray-400">CAPSULES</span>
+</a>
+</nav>
+</header>
+<div class="px-6 py-4 overflow-x-auto no-scrollbar">
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-text-primary dark:bg-primary text-white rounded-full text-xs font-sans font-medium whitespace-nowrap shadow-sm">
+                All Items
+                <span class="material-symbols-outlined text-[16px]">keyboard_arrow_down</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-primary dark:text-gray-200 rounded-full text-xs font-sans font-medium whitespace-nowrap hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                Category
+                <span class="material-symbols-outlined text-[16px]">keyboard_arrow_down</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-primary dark:text-gray-200 rounded-full text-xs font-sans font-medium whitespace-nowrap hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                Color
+                <span class="material-symbols-outlined text-[16px]">keyboard_arrow_down</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-primary dark:text-gray-200 rounded-full text-xs font-sans font-medium whitespace-nowrap hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                Season
+                <span class="material-symbols-outlined text-[16px]">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+<main class="flex-1 px-6 pb-24 overflow-y-auto no-scrollbar">
+<div class="grid grid-cols-2 gap-4">
+<div class="group relative flex flex-col gap-2">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark">
+<img alt="Beige blazer on hanger" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Beige blazer on hanger" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjKy53MNMahSvz-W4uQvsZilwoTJ-o0I19E_XmQne1C9_567vwz4OvbkK1kQKhDyLLNY1HrBCJeGZor0Ioup6H6fbc0M9DCr2KOSaV3ezEUWewndrb7qE4t8yubsKWyV6ZQnv9tGy6PeRbwK917BdWa7sD_9TRSdC65SbAfG7kDYrlBbh_MuzQsMkAv3-hR3-KnBe4nuwV4dJl3bkqRpK6Lb1rroLaMxATKqaDtSoBEXkm5QkG8EoGF9qkhiAacH1ZMmmROvCzyyU"/>
+<div class="absolute top-2 right-2 flex flex-col gap-2">
+<button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/80 dark:bg-black/50 backdrop-blur-sm text-text-primary dark:text-white shadow-sm hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-2 left-2">
+<div class="px-2 py-1 rounded-md bg-white/90 dark:bg-black/70 backdrop-blur-md">
+<span class="text-[10px] font-sans font-bold uppercase tracking-wider text-text-primary dark:text-white">3 Wears</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-serif text-sm font-semibold text-text-primary dark:text-white truncate">Saint Laurent Blazer</h3>
+<p class="text-xs font-sans text-text-secondary dark:text-gray-400">Outerwear • Fall</p>
+</div>
+</div>
+<div class="group relative flex flex-col gap-2">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark">
+<img alt="Blue high heels shoes" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Blue high heels shoes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIiAlUAHG5pcLQZQCa5GktWZ66uIwPSJAJ6uxPmHNGjNvYtu1YSe6rWZa1GvsuR0u9uZzDts-veM50UR0Fi8corYO1Uw_2d1D45Hy1b9UsKmq1HU92BRLKap4VvQvpzOxKFARg_IcgQ1s1VXWtVHxD7-MFE5N1u4j3eyVI2PvjOKf8dV9KcJ8DH3OCQQ4wuKJwQlIWX9gB9lJ2X46CkJYCuYJlMA7kHgtufGwl_keLzGvGU2K6Af5dVmfakO3CLlwzAjkoQP4-xE4"/>
+<div class="absolute top-2 right-2 flex flex-col gap-2">
+<button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/80 dark:bg-black/50 backdrop-blur-sm text-red-500 shadow-sm hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[18px] filled">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-2 left-2">
+<div class="px-2 py-1 rounded-md bg-white/90 dark:bg-black/70 backdrop-blur-md">
+<span class="text-[10px] font-sans font-bold uppercase tracking-wider text-text-primary dark:text-white">12 Wears</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-serif text-sm font-semibold text-text-primary dark:text-white truncate">Manolo Blahnik Pumps</h3>
+<p class="text-xs font-sans text-text-secondary dark:text-gray-400">Shoes • Formal</p>
+</div>
+</div>
+<div class="group relative flex flex-col gap-2">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark">
+<img alt="Luxury leather brown bag" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Luxury leather brown bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAusddfmoaSSrHqVRFruGURAJolcfuBS471vz5CcQvPy7ufN7H9gUydqMb03btAlTbKWHBl6_4rQHnoCtWqQ_t92k58rGTgeU2IEZtW_nbZbR2phflohF-JxNAEwkD2QZydDl1I_DXDPCrk1nDT4TA6R9UBRrM9QlOaLxzrBatoI2dUXPkGr5TVozRaFIUfMrMkpFtzI4eOHHBc1TWHQaQPm7rc0QKkqGsYPu5ikK85FDGw9jqmg8g-xSRTKeX6ZMFd0trCSJ7oGcY"/>
+<div class="absolute top-2 right-2 flex flex-col gap-2">
+<button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/80 dark:bg-black/50 backdrop-blur-sm text-text-primary dark:text-white shadow-sm hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-2 left-2">
+<div class="px-2 py-1 rounded-md bg-white/90 dark:bg-black/70 backdrop-blur-md">
+<span class="text-[10px] font-sans font-bold uppercase tracking-wider text-text-primary dark:text-white">New</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-serif text-sm font-semibold text-text-primary dark:text-white truncate">Hermès Kelly</h3>
+<p class="text-xs font-sans text-text-secondary dark:text-gray-400">Bags • Vintage</p>
+</div>
+</div>
+<div class="group relative flex flex-col gap-2">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark">
+<img alt="White minimalist t-shirt" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="White minimalist t-shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQn-Nh8BS-My4Kq3bHphI8-vm4nOTf5kIl1IwRyLpOImCUEU79RzF2cakKqqd_hFwZLBXaaIi4BEA1HEfF03zlptXk1-V9BSPYuap8HH0FNZzYZWXuyszLMw4Jl9FWUDtu7llKT0FIyeg-gChJ4QJg_VaeQIFKQtS9uN-CAb23m-dWxLOvpI-kvMt3A_fnL1goKKSDz-7664PkfBS17P3J-N7u4cOHouNB3cIFpt9kBKbIaTQSL18ryBYNrcKDvqd1fKC9OwuBqm8"/>
+<div class="absolute top-2 right-2 flex flex-col gap-2">
+<button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/80 dark:bg-black/50 backdrop-blur-sm text-text-primary dark:text-white shadow-sm hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-2 left-2">
+<div class="px-2 py-1 rounded-md bg-white/90 dark:bg-black/70 backdrop-blur-md">
+<span class="text-[10px] font-sans font-bold uppercase tracking-wider text-text-primary dark:text-white">45 Wears</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-serif text-sm font-semibold text-text-primary dark:text-white truncate">Cotton Citizen Tee</h3>
+<p class="text-xs font-sans text-text-secondary dark:text-gray-400">Tops • Essentials</p>
+</div>
+</div>
+<div class="group relative flex flex-col gap-2">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark">
+<img alt="Silk colorful scarf" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Silk colorful scarf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdPzf2UerEWUT5UPzwJlz-w1PT5FJrtgnO0uER8sTYFgrgDHhfOEat450-ma8aeBuigRD-94imcChfwBvRuf16wPypzrxKpkxRYuY1sY0B0tWThupS8p74-xrH87IuZvI4JrxPglwy3nfLLDgd58MWMHG5jwNoj44YnnMDbHIBBxv9Lwx3snPDJVZNAXHJs-B0Xduw2yjsF4MBKNq10OODM8DwgZFUwwm40hBTWQeo2MV3cIoyJCtNn2CTS_jJlSa9oL5Fr7juty0"/>
+<div class="absolute top-2 right-2 flex flex-col gap-2">
+<button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/80 dark:bg-black/50 backdrop-blur-sm text-text-primary dark:text-white shadow-sm hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-2 left-2">
+<div class="px-2 py-1 rounded-md bg-white/90 dark:bg-black/70 backdrop-blur-md">
+<span class="text-[10px] font-sans font-bold uppercase tracking-wider text-text-primary dark:text-white">8 Wears</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-serif text-sm font-semibold text-text-primary dark:text-white truncate">Gucci Silk Scarf</h3>
+<p class="text-xs font-sans text-text-secondary dark:text-gray-400">Accessories • Summer</p>
+</div>
+</div>
+<div class="group relative flex flex-col gap-2">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark">
+<img alt="Vintage denim jeans" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Vintage denim jeans" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7ekTIqa8HfSKZOJIHEtRqnUMZuMfUGUGIfq8Fjr4ASpU7ZwDkSaH4Kh9KXvQzQtH6Sh1TC2XGSQ7oFgt4qoUf1Irq7XW9iqxXP1z7jJmNL1-1JAO01IQJGWzB5MmlHu8L2iiStssoHAzaHal3KF82ZBLEjJ13Ng9dtnav8fUv7Ws-4fbrgem_Ds9qIz2ULAww_F5cXZhRf1wpeCxoi7HFhzrlkS8hT4xQcDoqIgbeT_JrePliEPbsachmaxxPicb_qpja5Z_r21k"/>
+<div class="absolute top-2 right-2 flex flex-col gap-2">
+<button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/80 dark:bg-black/50 backdrop-blur-sm text-red-500 shadow-sm hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-[18px] filled">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-2 left-2">
+<div class="px-2 py-1 rounded-md bg-white/90 dark:bg-black/70 backdrop-blur-md">
+<span class="text-[10px] font-sans font-bold uppercase tracking-wider text-text-primary dark:text-white">82 Wears</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-serif text-sm font-semibold text-text-primary dark:text-white truncate">Levi's 501 Vintage</h3>
+<p class="text-xs font-sans text-text-secondary dark:text-gray-400">Bottoms • Daily</p>
+</div>
+</div>
+</div>
+</main>
+<nav class="absolute bottom-0 w-full bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 z-40">
+<div class="flex justify-around items-center px-2 py-3">
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-2xl text-text-primary dark:text-primary transition-colors">checkroom</span>
+<span class="text-[10px] font-sans font-medium text-text-primary dark:text-primary">Closet</span>
+</a>
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-2xl text-gray-400 group-hover:text-text-primary dark:group-hover:text-white transition-colors">auto_awesome</span>
+<span class="text-[10px] font-sans font-medium text-gray-400 group-hover:text-text-primary dark:group-hover:text-white">Generate</span>
+</a>
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-2xl text-gray-400 group-hover:text-text-primary dark:group-hover:text-white transition-colors">calendar_month</span>
+<span class="text-[10px] font-sans font-medium text-gray-400 group-hover:text-text-primary dark:group-hover:text-white">Plan</span>
+</a>
+<a class="flex flex-col items-center gap-1 min-w-[64px] group" href="#">
+<span class="material-symbols-outlined text-2xl text-gray-400 group-hover:text-text-primary dark:group-hover:text-white transition-colors">person</span>
+<span class="text-[10px] font-sans font-medium text-gray-400 group-hover:text-text-primary dark:group-hover:text-white">Profile</span>
+</a>
+</div>
+<div class="h-6 w-full bg-white dark:bg-background-dark"></div>
+</nav>
+</div>
+
+</body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archive - Passwordless Login</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#195de6",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-slate-100 h-screen overflow-hidden flex flex-col md:flex-row">
+<!-- Image Side (Top on mobile, Left on desktop) -->
+<div class="relative w-full h-[45vh] md:h-full md:w-1/2 lg:w-3/5 bg-slate-200">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Minimalist high fashion outfit on hanger" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAgp2ilnJSfbrLA1sgaZDvpCtCUzgPl2bqh9BLk2IeAqjDBugTfMBVvjbLZAzre9tL9g-ZCTKTL0YULOYgYdIddii8Qq06CibNIsQWaOa3I8Y-C3rQ_5Beq4ZyrW1wM5wTIT56tVvPx_B4kQpR5W0vJRliSYYMsQTe7PCYeyAbuOL_mrAlxKdLaKbA3V10t-dEe15GnfFZHVhnvVEGQGJ6DOHCP14E6jq-U__1eciAhOY0PFboa7NQc2Hd-CPu_N6WfjFcrqo4nQE');"></div>
+<div class="absolute inset-0 bg-black/10"></div> <!-- Subtle overlay for depth -->
+<!-- Optional Quote or Decorative Element for larger screens -->
+<div class="hidden md:flex absolute bottom-12 left-12 right-12 text-white">
+<p class="text-2xl font-serif italic tracking-wide">"Fashion is the armor to survive the reality of everyday life."</p>
+</div>
+</div>
+<!-- Content Side (Bottom on mobile, Right on desktop) -->
+<div class="flex-1 flex flex-col justify-center items-center w-full md:w-1/2 lg:w-2/5 bg-white dark:bg-background-dark px-6 py-8 md:px-12 lg:px-20 relative z-10 -mt-6 rounded-t-[32px] md:mt-0 md:rounded-none shadow-[0_-8px_30px_rgba(0,0,0,0.04)] md:shadow-none">
+<div class="w-full max-w-md space-y-8">
+<!-- Header Section -->
+<div class="text-center space-y-2">
+<h1 class="font-serif text-4xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">Archive</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base md:text-lg">Welcome to your curated closet.</p>
+</div>
+<!-- Login Form -->
+<div class="space-y-6 pt-4">
+<div class="space-y-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 ml-1" for="email">Email Address</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400">mail</span>
+</div>
+<input class="block w-full rounded-xl border-slate-200 bg-slate-50 dark:bg-slate-800/50 dark:border-slate-700 py-4 pl-12 pr-4 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary sm:text-base transition-colors duration-200 ease-in-out" id="email" placeholder="you@example.com" type="email"/>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold h-14 px-8 transition-all duration-200 transform active:scale-[0.98] shadow-lg shadow-primary/20">
+<span>Send Magic Link</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Helper Text -->
+<div class="flex items-start gap-3 p-4 rounded-lg bg-primary/5 dark:bg-primary/10 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-xl shrink-0 mt-0.5">lock</span>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        We'll send a secure link to your inbox to sign you in instantly. No passwords required.
+                    </p>
+</div>
+</div>
+<!-- Footer Links -->
+<div class="pt-8 text-center border-t border-slate-100 dark:border-slate-800 mt-8">
+<p class="text-xs text-slate-400 dark:text-slate-500">
+                    By continuing, you agree to Archive's <a class="underline hover:text-primary transition-colors" href="#">Terms of Service</a> and <a class="underline hover:text-primary transition-colors" href="#">Privacy Policy</a>.
+                </p>
+</div>
+</div>
+</div>
+</body></html>

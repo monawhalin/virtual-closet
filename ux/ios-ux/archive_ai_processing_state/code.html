@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archive AI Processing State</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#195de6", // Keeping the requested primary, though a luxury app might usually use black/gold, we follow the theme config.
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        // Adding custom neutrals derived from primary blue hue (approx 220deg)
+                        "neutral-surface": "#F0F4FA", 
+                        "neutral-text-strong": "#1A202C", 
+                        "neutral-text-soft": "#64748B", 
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"], // Added for the luxury aesthetic headlines
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Shimmer effect for the processing state */
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        .animate-shimmer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex justify-center items-start">
+<div class="relative flex h-full min-h-screen w-full max-w-md flex-col bg-white dark:bg-slate-900 group/design-root overflow-x-hidden shadow-xl mx-auto">
+<!-- Header -->
+<div class="flex items-center bg-white dark:bg-slate-900 p-4 pb-2 justify-between sticky top-0 z-10">
+<button class="text-neutral-text-strong dark:text-slate-100 flex size-12 shrink-0 items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-neutral-text-strong dark:text-slate-100 text-lg font-serif font-bold leading-tight tracking-wide flex-1 text-center pr-12 uppercase">Archive</h2>
+</div>
+<!-- Progress Section -->
+<div class="flex flex-col gap-2 px-6 pt-4 pb-2">
+<h3 class="text-neutral-text-strong dark:text-slate-100 tracking-wider text-xs font-bold leading-tight text-center uppercase text-primary mb-2">Start Your Collection</h3>
+<div class="flex gap-6 justify-between items-end">
+<p class="text-neutral-text-strong dark:text-slate-100 text-sm font-medium leading-normal">Processing Item 1</p>
+<p class="text-neutral-text-soft dark:text-slate-400 text-xs font-medium leading-normal">0 of 5</p>
+</div>
+<div class="rounded-full bg-slate-200 dark:bg-slate-700 h-1.5 w-full overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 20%;"></div>
+</div>
+</div>
+<!-- Main Content: Image Processing -->
+<div class="flex-1 flex flex-col items-center justify-center p-6 pb-12 gap-8">
+<!-- Circular Image Container -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 shrink-0">
+<!-- Decorative Ring -->
+<div class="absolute inset-0 rounded-full border border-slate-200 dark:border-slate-700"></div>
+<!-- Inner Image Frame -->
+<div class="absolute inset-2 rounded-full overflow-hidden bg-neutral-surface dark:bg-slate-800 shadow-inner relative">
+<!-- User Uploaded Image -->
+<div class="w-full h-full bg-center bg-cover" data-alt="Close up of a luxury beige trench coat texture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKap3rZA13_J3yh1SXZY4gVtPY4xkHN9NIZIAWqtoxkn7WsUNHgWaFY8Yz1kemPvIT4rZ2FQwn8gKZUtgF24bXkSyFn__g-e5z4FbqCAz6hRANz9qwWDOJfCd4NicBh_DpxPgnkVrLuCXwW9YRNJOCrHQYNErJCFDXvG619HohuQU6ThdYBPwtNcdVpsCj4FdQn0o5iRYGfwxIxsTq9jSq7yUs-mgKVb4Y0zTNSslDYhvA_-Ypqu3gv-KwZEDNGMV6XYcPh3lMzwc');">
+</div>
+<!-- Processing Overlay -->
+<div class="absolute inset-0 bg-primary/10 dark:bg-primary/20 backdrop-blur-[2px]"></div>
+<!-- Shimmer Animation -->
+<div class="animate-shimmer"></div>
+<!-- Scanning Line (Optional visual cue for AI) -->
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-white/50 shadow-[0_0_15px_rgba(255,255,255,0.8)] animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+</div>
+<!-- Status Badge -->
+<div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white dark:bg-slate-800 shadow-lg px-4 py-1.5 rounded-full border border-slate-100 dark:border-slate-700 flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-[10px] font-bold tracking-widest uppercase text-neutral-text-strong dark:text-slate-200">AI Active</span>
+</div>
+</div>
+<!-- Text Content -->
+<div class="text-center max-w-xs space-y-3 animate-pulse">
+<h2 class="text-neutral-text-strong dark:text-slate-100 text-3xl font-serif font-medium leading-tight tracking-tight">
+                    Defining the silhouette...
+                </h2>
+<p class="text-neutral-text-soft dark:text-slate-400 text-sm font-normal leading-relaxed px-2">
+                    Our AI is meticulously removing the background to spotlight your piece.
+                </p>
+</div>
+</div>
+<!-- Bottom Action / Cancel -->
+<div class="p-6 pt-0 mt-auto w-full">
+<button class="w-full py-4 rounded text-neutral-text-soft dark:text-slate-400 text-sm font-medium hover:text-neutral-text-strong dark:hover:text-slate-200 transition-colors">
+                Cancel Upload
+            </button>
+</div>
+</div>
+</body></html>

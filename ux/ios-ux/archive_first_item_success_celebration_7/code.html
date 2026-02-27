@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archive Wear History - Outfit Recorded</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&amp;family=Noto+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "primary-hover": "#0d42ab",
+                        "background-light": "#f8f8fa",
+                        "background-dark": "#101622",
+                        "slate-900": "#111318",
+                        "slate-700": "#334155",
+                        "slate-500": "#64748b",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        .material-symbols-outlined.filled {
+             font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-slate-50 dark:bg-black font-display antialiased text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4">
+<div class="relative w-full max-w-md h-[844px] bg-white dark:bg-slate-900 shadow-2xl overflow-hidden rounded-[40px] border-8 border-slate-900 dark:border-slate-800 flex flex-col">
+<div class="h-12 w-full flex items-center justify-between px-6 pt-2 absolute top-0 left-0 z-50">
+<span class="text-xs font-sans font-bold text-slate-900 dark:text-white">9:41</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-symbols-outlined text-[18px] text-slate-900 dark:text-white">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[18px] text-slate-900 dark:text-white">wifi</span>
+<span class="material-symbols-outlined text-[18px] text-slate-900 dark:text-white">battery_full</span>
+</div>
+</div>
+<div class="px-8 pt-16 pb-4 flex justify-between items-center z-10 bg-white dark:bg-slate-900 sticky top-0">
+<button class="p-2 -ml-2 text-slate-900 dark:text-white hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-sm font-sans font-bold uppercase tracking-widest text-slate-900 dark:text-white">
+                Wear History
+            </h1>
+<button class="p-2 -mr-2 text-slate-900 dark:text-white hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined">calendar_month</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar pb-32">
+<div class="px-6 mb-8">
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-slate-900 dark:bg-slate-800 rounded-xl p-4 flex flex-col items-center justify-center text-center shadow-lg border border-slate-800 dark:border-slate-700">
+<span class="text-white font-display text-3xl font-bold mb-1">28</span>
+<span class="text-slate-400 font-sans text-[10px] uppercase tracking-wider">Total Wears</span>
+</div>
+<div class="bg-slate-900 dark:bg-slate-800 rounded-xl p-4 flex flex-col items-center justify-center text-center shadow-lg border border-slate-800 dark:border-slate-700">
+<span class="text-white font-display text-lg font-bold mb-1 leading-tight">Trench Coat</span>
+<span class="text-slate-400 font-sans text-[10px] uppercase tracking-wider">Most Worn</span>
+</div>
+</div>
+<div class="flex justify-between items-end mb-4 px-2">
+<h2 class="font-display text-2xl text-slate-900 dark:text-white">October 2023</h2>
+<div class="flex gap-2 text-slate-400">
+<span class="material-symbols-outlined text-lg cursor-pointer hover:text-slate-900">chevron_left</span>
+<span class="material-symbols-outlined text-lg cursor-pointer hover:text-slate-900">chevron_right</span>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-y-4 gap-x-1 text-center font-sans text-xs">
+<div class="text-slate-400 font-medium">S</div>
+<div class="text-slate-400 font-medium">M</div>
+<div class="text-slate-400 font-medium">T</div>
+<div class="text-slate-400 font-medium">W</div>
+<div class="text-slate-400 font-medium">T</div>
+<div class="text-slate-400 font-medium">F</div>
+<div class="text-slate-400 font-medium">S</div>
+<div class="text-slate-200 dark:text-slate-700 py-2">29</div>
+<div class="text-slate-200 dark:text-slate-700 py-2">30</div>
+<div class="text-slate-900 dark:text-white py-2">1</div>
+<div class="text-slate-900 dark:text-white py-2">2</div>
+<div class="text-slate-900 dark:text-white py-2">3</div>
+<div class="text-slate-900 dark:text-white py-2">4</div>
+<div class="text-slate-900 dark:text-white py-2">5</div>
+<div class="text-slate-900 dark:text-white py-2">6</div>
+<div class="text-slate-900 dark:text-white py-2">7</div>
+<div class="text-slate-900 dark:text-white py-2">8</div>
+<div class="text-slate-900 dark:text-white py-2">9</div>
+<div class="text-slate-900 dark:text-white py-2">10</div>
+<div class="text-slate-900 dark:text-white py-2">11</div>
+<div class="text-slate-900 dark:text-white py-2">12</div>
+<div class="text-slate-900 dark:text-white py-2">13</div>
+<div class="text-slate-900 dark:text-white py-2">14</div>
+<div class="text-slate-900 dark:text-white py-2">15</div>
+<div class="text-slate-900 dark:text-white py-2">16</div>
+<div class="text-slate-900 dark:text-white py-2">17</div>
+<div class="text-slate-900 dark:text-white py-2">18</div>
+<div class="text-slate-900 dark:text-white py-2">19</div>
+<div class="relative flex flex-col items-center justify-start h-10 group cursor-pointer">
+<span class="text-slate-900 dark:text-white z-10 text-[10px] mb-1">20</span>
+<div class="w-6 h-6 rounded-full bg-slate-100 overflow-hidden border border-slate-200">
+<div class="w-full h-full bg-[#3d4c53]"></div>
+</div>
+</div>
+<div class="text-slate-900 dark:text-white py-2">21</div>
+<div class="text-slate-900 dark:text-white py-2">22</div>
+<div class="text-slate-900 dark:text-white py-2">23</div>
+<div class="relative flex flex-col items-center justify-start h-10 group cursor-pointer">
+<div class="absolute -top-1 w-6 h-6 bg-slate-900 dark:bg-white rounded-full flex items-center justify-center z-0">
+<span class="text-white dark:text-slate-900 font-bold text-[10px]">24</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-white shadow-md overflow-hidden border-2 border-slate-900 dark:border-slate-50 mt-6 z-10 relative">
+<div class="w-full h-full bg-[#f4f4f5] relative">
+<img alt="Thumbnail" class="w-full h-full object-cover mix-blend-multiply opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADgIqn2K0u_ZxydGyuPmt3CZCS7tGTrY5jwuL8zEfn9IlTW_aGzAZVb2MZzjb5JzJoHf_k8_d1_sBZ8IR90AGwNmmbs8Bjy4j_6UU_zb1XH8ud1ldH5goRw9QpEwxrRS6WG3JSk2KnMzSDhnqtcwcLyXOu1Vfp23s6NIOlRyILIcPrD-XIOjuN_8SToQ1Zjv8t5avTJP3pXOZQS6kfXcFRaHFAVcT8BmEZEMstGDROYKoVg8kYJSie7EPiZQnpS_oQ6f8fHQE4Yp0"/>
+</div>
+</div>
+</div>
+<div class="text-slate-900 dark:text-white py-2 opacity-40">25</div>
+<div class="text-slate-900 dark:text-white py-2 opacity-40">26</div>
+<div class="text-slate-900 dark:text-white py-2 opacity-40">27</div>
+<div class="text-slate-900 dark:text-white py-2 opacity-40">28</div>
+<div class="text-slate-900 dark:text-white py-2 opacity-40">29</div>
+<div class="text-slate-900 dark:text-white py-2 opacity-40">30</div>
+<div class="text-slate-900 dark:text-white py-2 opacity-40">31</div>
+</div>
+</div>
+<div class="px-8 mt-2 mb-4 border-t border-slate-100 dark:border-slate-800 pt-6">
+<h3 class="text-xs font-sans font-bold uppercase tracking-widest text-slate-500">Timeline</h3>
+</div>
+<div class="px-6 space-y-6">
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center pt-1">
+<div class="w-2 h-2 rounded-full bg-slate-900 dark:bg-white ring-4 ring-white dark:ring-slate-900"></div>
+<div class="w-px h-full bg-slate-200 dark:bg-slate-700 my-1"></div>
+</div>
+<div class="flex-1 pb-4">
+<span class="text-xs font-sans font-bold text-slate-400 uppercase tracking-wider block mb-2">Today</span>
+<div class="bg-[#f8f8fa] dark:bg-slate-800 rounded-2xl p-4 flex gap-4 items-center shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="w-20 h-24 bg-white dark:bg-slate-700/50 rounded-lg overflow-hidden flex-shrink-0 relative border border-slate-100 dark:border-slate-600">
+<div class="absolute inset-0 p-2">
+<img alt="Coat" class="absolute top-1 left-1 w-12 h-16 object-contain mix-blend-multiply dark:mix-blend-normal z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADgIqn2K0u_ZxydGyuPmt3CZCS7tGTrY5jwuL8zEfn9IlTW_aGzAZVb2MZzjb5JzJoHf_k8_d1_sBZ8IR90AGwNmmbs8Bjy4j_6UU_zb1XH8ud1ldH5goRw9QpEwxrRS6WG3JSk2KnMzSDhnqtcwcLyXOu1Vfp23s6NIOlRyILIcPrD-XIOjuN_8SToQ1Zjv8t5avTJP3pXOZQS6kfXcFRaHFAVcT8BmEZEMstGDROYKoVg8kYJSie7EPiZQnpS_oQ6f8fHQE4Yp0"/>
+<img alt="Blouse" class="absolute top-4 right-1 w-10 h-10 object-contain mix-blend-multiply dark:mix-blend-normal z-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe0e-XPHT6Q_i8NU7jAUCKlew0kCTp2c6ISizKQly1yHvuPRaYOFI-Afzv6dFF4UcTn9-e9pp4FB29yLPN-Fq_MwQoTW6cmrlG4zidxzHqpmPl3u3ipBlGIvE2oQKU4zijwPdlFtiAKQpuMsHWZVl_KH93T913twxv5eeRz_P1VkvT0GT5r-zy9aZJzYLIkvI5o_b52Caqsw2UzvBXjouoiVF-EeUODl5qJRLrfiwX8xuRZliPBmVcUZT4O9K8rjia2CshnITPRZ0"/>
+<img alt="Pants" class="absolute bottom-1 left-4 w-10 h-12 object-contain mix-blend-multiply dark:mix-blend-normal z-10 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACmTvbU7Dz856gPDFXt1uOgFkdcVc0RXJdgV1kn0Hwy0skts21v0uYPYiR1JgNcZnDhmFSNRpmW5GHWFDiJeEUj42wJXWb0AH2WbZwQJr4frPxadnFySl_bv0BS8bqSC68ZWqEIP8eCA-Q6fVpdSOLRDGLEoTEPnodn8oEenNYsQzOOOY9_Cpl8KiQKVOnaN3QnuW5-YdquZdaneAsjlnW5hO6ExCZw0-OG92laJ0BVm75QuZpzqvlnylwNSNVxH4JyuxNyRpu9bw"/>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-display italic text-lg text-slate-900 dark:text-white leading-tight mb-1">Sophisticated &amp; Timeless</h4>
+<p class="text-[10px] text-slate-500 font-sans leading-relaxed line-clamp-2">
+                            Tailored coat with silk blouse pairing.
+                        </p>
+<div class="mt-2 flex gap-1">
+<span class="text-[10px] px-2 py-0.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-600 rounded-full text-slate-500">Work</span>
+<span class="text-[10px] px-2 py-0.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-600 rounded-full text-slate-500">Fall</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-4 opacity-60">
+<div class="flex flex-col items-center pt-1">
+<div class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+<div class="w-px h-full bg-slate-200 dark:bg-slate-700 my-1"></div>
+</div>
+<div class="flex-1 pb-4">
+<span class="text-xs font-sans font-bold text-slate-400 uppercase tracking-wider block mb-2">Oct 20</span>
+<div class="flex gap-4 items-center pl-2">
+<div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700"></div>
+<div>
+<h4 class="font-display italic text-sm text-slate-900 dark:text-white leading-tight">Casual Friday</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-24 left-0 right-0 z-50 px-6 pointer-events-none flex justify-center animate-bounce-short">
+<div class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 transform translate-y-0 transition-all duration-500">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="font-sans text-xs font-medium tracking-wide">Outfit archived in your history.</span>
+</div>
+</div>
+<div class="absolute bottom-0 w-full h-[88px] bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 flex items-start justify-between px-8 z-50 rounded-b-[32px]">
+<div class="flex flex-col items-center justify-center gap-1.5 pt-4 cursor-pointer">
+<span class="material-symbols-outlined filled text-primary text-[28px]">door_open</span>
+<span class="text-[10px] font-sans font-bold text-primary tracking-widest uppercase">Closet</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1.5 pt-4 cursor-pointer group">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white transition-colors text-[28px]">checkroom</span>
+<span class="text-[10px] font-sans font-bold text-slate-300 dark:text-slate-600 group-hover:text-slate-900 dark:group-hover:text-white transition-colors tracking-widest uppercase">Outfits</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1.5 pt-4 cursor-pointer group">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white transition-colors text-[28px]">work</span>
+<span class="text-[10px] font-sans font-bold text-slate-300 dark:text-slate-600 group-hover:text-slate-900 dark:group-hover:text-white transition-colors tracking-widest uppercase">Capsules</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1.5 pt-4 cursor-pointer group">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white transition-colors text-[28px]">account_circle</span>
+<span class="text-[10px] font-sans font-bold text-slate-300 dark:text-slate-600 group-hover:text-slate-900 dark:group-hover:text-white transition-colors tracking-widest uppercase">Profile</span>
+</div>
+</div>
+<div class="absolute bottom-2 w-full flex justify-center z-50 pointer-events-none">
+<div class="w-1/3 h-1.5 bg-slate-900 dark:bg-white rounded-full opacity-10"></div>
+</div>
+</div>
+</body></html>

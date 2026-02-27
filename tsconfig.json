@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./apps/web" },
+    { "path": "./packages/shared" },
+    { "path": "./packages/outfit-gen" },
+    { "path": "./packages/ui-shared" }
+  ]
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Capsule Collections</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#195de6",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display antialiased min-h-screen flex flex-col">
+<header class="sticky top-0 z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+<div class="px-4 py-4 flex items-center justify-between">
+<button class="p-2 -ml-2 text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-xl font-serif font-semibold tracking-wide text-slate-900 dark:text-white">Capsule Collections</h1>
+<button class="p-2 -mr-2 text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+<div class="flex gap-2 px-4 pb-4 overflow-x-auto no-scrollbar">
+<button class="whitespace-nowrap rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-1.5 text-xs font-medium uppercase tracking-wider shadow-sm transition-transform active:scale-95">All Capsules</button>
+<button class="whitespace-nowrap rounded-full bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-4 py-1.5 text-xs font-medium uppercase tracking-wider hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Seasonal</button>
+<button class="whitespace-nowrap rounded-full bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-4 py-1.5 text-xs font-medium uppercase tracking-wider hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Travel</button>
+<button class="whitespace-nowrap rounded-full bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-4 py-1.5 text-xs font-medium uppercase tracking-wider hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Work</button>
+</div>
+</header>
+<main class="flex-1 px-4 py-6 space-y-6 pb-24">
+<div class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
+<div class="relative h-64 w-full overflow-hidden">
+<img alt="Fashionable woman walking in London street with trench coat" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Fashionable woman walking in London street with trench coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCJZ-L9B8w8psQpJcPc1360_RDwfd9bfJRXUybEW--cdwImhhYZDHl0Li3HR_RQQuL7OZBW7W_trAdAvi7TMWyp7ooGorMw-p78LsadcbpHeCAJjZ6gmQ-PTT6dkF_oDjlZvEN194mr323GC0WRerHJ4rQlDSy_9aixcLDJNslh-3NqUzm_klFwNjEuqfUclRsdAazaU14jEUcP4yn_s7fhNz2aM1FPVj1r6Npvalz8Tq_9SQjwjM7WC-9V_xQir5bvMyfpbPEGwk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-5 w-full">
+<div class="flex items-center justify-between mb-2">
+<span class="inline-flex items-center rounded-sm bg-white/20 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-white backdrop-blur-md ring-1 ring-inset ring-white/30">Travel</span>
+<span class="text-white/90 text-xs font-medium flex items-center gap-1 font-display">
+<span class="material-symbols-outlined text-[16px]">cloud</span> 12°C
+                        </span>
+</div>
+<h2 class="text-3xl font-serif font-bold text-white mb-1">Business Trip - London</h2>
+<p class="text-slate-200 text-sm font-light font-display">Sophisticated layers for the city.</p>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Beige trench coat texture" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-800 object-cover" data-alt="Beige trench coat texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7-Q3BX9xoHvkVreoIppIEostSB0qapDjUbro5PoIQRPhhXLX82Y8VxJABBDTPsydeugB9YzIqb1aA1cn12L854H2tWuydOieXLTNqZj4cSccBVfI3CBvUyD1Xtc5nzoGzpRH6s_56rzhsR2yNcR7-onBP9ODjw-NnXpHgY1nylIe2-D5gbUnYSCmf0G-Du0AsP5qZJnN3soOk3fkzbR2D_nh2KuDFrYM9eQewWJC1eaRD3sjy_sj6CqP_gp-8B5NjIIORVdgR8s4"/>
+<img alt="White silk blouse fabric" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-800 object-cover" data-alt="White silk blouse fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhOoaYvckduqWs0yxkYm8cPSOTIMeFahbMv2eOw5P2t0PyycI5NQ2jTK48DARFEi72gY0JMPEHP9jvi15eFO7-EdleYVPA1QaXC2OQ085LJQmzUA47yJqUk8vVdcK7qRLnNzpOLdF09aaeJkuEmO2KsApzy4ofrfJrL50frJB1UNsYKULlG6EFS3g4rPGnku9fY1N5mPUO2R8zR0idei9YUZaox0JjeJIRC0f7QwVwhXn0pMCAF1mu9rAmesI3RJae6wJDaghAAgk"/>
+<img alt="Black leather handbag detail" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-800 object-cover" data-alt="Black leather handbag detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLbQCOBUoGlZsi79hVIYDKx9TPNMc6Bp9U-lUzHhdVBWAPkW8dkIF5UG4MJd53_vuaaymPR5mDdcaK4E46tpitveyf-0VFUtFVW_whAx2aZssOixGOKhaoNNs3TOEi9ZYpSCDCSzd80k1r4JKiKA5_pL_CyjNIBzq5RTtJeSUmoXCDLsTJWP4q9SsieQkJkO0ftT8s93gZ9aYBdCayF1KjCPdEoYGkdVsNKb5qZsVYhX7NDbmuMTSFEvmSY76Y5iJcjJZrKrZ7gSU"/>
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-800 text-xs font-medium text-slate-500 dark:text-slate-300 font-display">+9</div>
+</div>
+<div class="text-right font-display">
+<p class="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wide">45 Outfits</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">from 12 items</p>
+</div>
+</div>
+<button class="w-full border-t border-slate-100 dark:border-slate-700 py-3 text-xs uppercase tracking-widest font-medium text-primary hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-2 font-display">
+            View Collection <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex flex-col bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="relative aspect-[4/3] w-full overflow-hidden">
+<img alt="Minimalist summer wardrobe hung on rack" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Minimalist summer wardrobe hung on rack" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiKSBY6fF8u5V6ItNcblembNnyAngrcCWCyZDeqSYsJ6mYertqFm6ulHJ9tz4DN94edl_iGJpjL5uaBOCCQC277IdEcqfg-QgmTX3VFwaZbSE1Xefm2oSzVOx42zeJ5dWfLkpjD988TkAZgSPjqkMSIG5zGf_ffcFto_8ndp3xUxPAFpI8AsdnxcYTSIsPXpWaa6K7VkdhFEA7Y4jIAI81VXYyXNyl7VCNsvZiFKdoj1fOuiDL4ranG8ZiIAW3ooXG35fSgirHTPo"/>
+<button class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-full text-slate-400 hover:text-red-500 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-4 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-serif font-bold text-xl text-slate-900 dark:text-white leading-tight">Summer Essentials</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-display">Light linens &amp; cottons</p>
+</div>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-700 font-display">
+<span class="text-[10px] uppercase tracking-wider font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-sm">18 Items</span>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">60 Looks</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="relative aspect-[4/3] w-full overflow-hidden">
+<img alt="Colorful high fashion model posing in studio" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Colorful high fashion model posing in studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0MlpZ91qo483dwIG5EUZW35aXbrSJPJwo_6tnU0yDSa8SXTmjgw4CkJPKH8uNWSNKXCbsL4mkoynz2z2mQIdRCsfuy6x44l6NP7cN0IezQMSrZNM6bF5LScQML88tM5-Go0XPZmF8ayEZWl3FV3kimaOaMxqNYRkAHJJijapKexnDkPzc5zKKkVnlhL-TtCB_JMCnd0cORS21VYWlt6vOjlfHp_0DL2W2UimWhY3FKVuO-2yZUHb3r0uBXVfg-qrrhzTJqlgsRPk"/>
+<button class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-full text-slate-400 hover:text-red-500 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-4 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-serif font-bold text-xl text-slate-900 dark:text-white leading-tight">Weekend Mini</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-display">Relaxed vibrant vibes</p>
+</div>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-700 font-display">
+<span class="text-[10px] uppercase tracking-wider font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-sm">8 Items</span>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">24 Looks</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center bg-white dark:bg-slate-800 rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-700 p-6 min-h-[200px] cursor-pointer hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all group">
+<div class="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</div>
+<h3 class="font-serif font-semibold text-lg text-slate-900 dark:text-white text-center">Create New Capsule</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 text-center mt-1 max-w-[150px] font-display">Start from scratch or use our AI stylist</p>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 z-30 pb-safe pt-2">
+<div class="flex items-center justify-around px-2 pb-2">
+<a class="flex flex-col items-center gap-1 p-2 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors group w-16" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">checkroom</span>
+<span class="text-[10px] font-medium font-display">Closet</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-primary group w-16 relative" href="#">
+<span class="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-b-full"></span>
+<span class="material-symbols-outlined text-[24px] font-variation-settings-fill transition-transform">grid_view</span>
+<span class="text-[10px] font-medium font-display">Capsules</span>
+</a>
+<div class="relative -top-6">
+<button class="flex items-center justify-center h-14 w-14 rounded-full bg-primary text-white shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[28px]">smart_toy</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors group w-16" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">styler</span>
+<span class="text-[10px] font-medium font-display">Outfits</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors group w-16" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">person</span>
+<span class="text-[10px] font-medium font-display">Profile</span>
+</a>
+</div>
+</nav>
+<div class="h-24"></div>
+<style>
+        .font-variation-settings-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+    </style>
+
+</body></html>

@@ -1,0 +1,14 @@
+{
+  "name": "virtual-closet-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "typecheck": "turbo typecheck"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
