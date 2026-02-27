@@ -1,13 +1,31 @@
 import { useState } from 'react'
-import { Mail, Loader2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Mail, Loader2, Lock, ArrowRight, ArrowLeft, Sun, Moon } from 'lucide-react'
 import { supabase } from '../lib/supabase'
-import { Button } from '../components/ui/Button'
+
+function HangerIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7l7 5.2a2 2 0 0 1-1.2 3.6H5.2A2 2 0 0 1 4 12.2L11 7V5.73A2 2 0 0 1 12 2z" />
+      <path d="M4 15.8h16v1a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-1z" />
+    </svg>
+  )
+}
 
 export function AuthPage() {
   const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [dark, setDark] = useState(true)
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -23,67 +41,159 @@ export function AuthPage() {
     }
   }
 
-  return (
-    <div className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-sm">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <span className="text-3xl">👗</span>
-          <h1 className="text-2xl font-bold text-stone-900 mt-2">Virtual Closet</h1>
-          <p className="text-sm text-stone-500 mt-1">Sign in to sync across devices</p>
-        </div>
+  const bg = dark ? 'bg-stone-950' : 'bg-stone-50'
+  const text = dark ? 'text-white' : 'text-stone-900'
+  const muted = dark ? 'text-stone-400' : 'text-stone-500'
+  const inputBorder = dark ? 'border-stone-700' : 'border-stone-300'
+  const inputText = dark ? 'text-white placeholder:text-stone-600' : 'text-stone-900 placeholder:text-stone-400'
+  const inputBg = dark ? 'bg-transparent' : 'bg-transparent'
+  const infoBg = dark ? 'bg-stone-900' : 'bg-stone-100'
+  const dividerColor = dark ? 'border-stone-800' : 'border-stone-200'
 
-        <div className="bg-white rounded-2xl border border-stone-100 p-6">
+  return (
+    <div className={`min-h-screen ${bg} ${text} transition-colors duration-300 flex flex-col`}>
+
+      {/* ─── NAV ─── */}
+      <nav className="flex items-center justify-between px-6 md:px-12 py-6 flex-shrink-0">
+        <Link to="/" className="flex items-center gap-2.5 text-white">
+          <HangerIcon className="w-6 h-6" />
+          <span className="font-serif text-xl tracking-tight">Virtual Closet</span>
+        </Link>
+        <button
+          onClick={() => setDark(!dark)}
+          className="w-12 h-12 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-colors duration-200"
+          aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+          {dark ? <Sun size={18} strokeWidth={1.5} /> : <Moon size={18} strokeWidth={1.5} />}
+        </button>
+      </nav>
+
+      {/* ─── MAIN ─── */}
+      <main className="flex-1 flex items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md">
+
           {sent ? (
-            <div className="text-center space-y-3">
-              <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto">
-                <Mail size={22} className="text-green-600" />
+            /* ── Check your inbox state ── */
+            <div className="text-center space-y-6">
+              <div className="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mx-auto">
+                <Mail size={26} className="text-blue-400" strokeWidth={1.5} />
               </div>
-              <h2 className="text-base font-semibold text-stone-900">Check your email</h2>
-              <p className="text-sm text-stone-500">
-                We sent a magic link to <strong>{email}</strong>. Click it to sign in.
-              </p>
+
+              <div className="space-y-3">
+                <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight">
+                  Check your inbox.
+                </h1>
+                <p className={`${muted} leading-relaxed text-sm`}>
+                  We've sent a magic link to{' '}
+                  <span className={text}>{email}</span>.
+                  <br />
+                  Click the link to sign in instantly.
+                </p>
+              </div>
+
+              <button
+                onClick={() => setSent(false)}
+                className={`w-full py-4 rounded-xl border ${dividerColor} ${muted} hover:${text} text-sm font-medium transition-colors`}
+              >
+                Resend Link
+              </button>
+
               <button
                 onClick={() => { setSent(false); setEmail('') }}
-                className="text-xs text-stone-400 hover:text-stone-700 underline underline-offset-2"
+                className={`flex items-center gap-1.5 mx-auto text-sm ${muted} hover:text-white transition-colors`}
               >
-                Use a different email
+                <ArrowLeft size={14} />
+                Back to Login
               </button>
             </div>
+
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-stone-700 mb-1.5">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder="you@example.com"
-                  required
-                  autoFocus
-                  className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900"
-                />
+            /* ── Login form state ── */
+            <div className="space-y-8">
+              {/* Icon */}
+              <div className="flex justify-center">
+                <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center">
+                  <HangerIcon className="w-7 h-7 text-white" />
+                </div>
               </div>
-              {error && (
-                <p className="text-xs text-red-600 bg-red-50 rounded-lg px-3 py-2">{error}</p>
-              )}
-              <Button type="submit" className="w-full justify-center" disabled={loading}>
-                {loading ? (
-                  <><Loader2 size={14} className="animate-spin" /> Sending…</>
-                ) : (
-                  <><Mail size={14} /> Send magic link</>
+
+              {/* Heading */}
+              <div className="text-center space-y-3">
+                <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight">
+                  Welcome back.
+                </h1>
+                <p className={`${muted} text-sm leading-relaxed`}>
+                  Enter your email to receive a secure<br />login link.
+                </p>
+              </div>
+
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Underline input */}
+                <div className={`border-b ${inputBorder} transition-colors focus-within:border-white`}>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    placeholder="name@example.com"
+                    required
+                    autoFocus
+                    className={`w-full py-3 ${inputBg} ${inputText} text-sm focus:outline-none`}
+                  />
+                </div>
+
+                {error && (
+                  <p className="text-xs text-red-400">{error}</p>
                 )}
-              </Button>
-            </form>
+
+                {/* Primary CTA */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full flex items-center justify-center gap-2.5 bg-white text-stone-900 py-4 rounded-xl text-sm font-medium hover:bg-stone-100 transition-colors disabled:opacity-60"
+                >
+                  {loading ? (
+                    <><Loader2 size={16} className="animate-spin" /> Sending…</>
+                  ) : (
+                    <>Send Magic Link <ArrowRight size={15} strokeWidth={2} /></>
+                  )}
+                </button>
+              </form>
+
+              {/* Info box */}
+              <div className={`${infoBg} rounded-xl px-4 py-4 flex items-start gap-3`}>
+                <Lock size={16} className="text-blue-400 flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+                <p className={`text-xs ${muted} leading-relaxed`}>
+                  We'll send a secure link to your inbox to sign you in instantly. No passwords required.
+                </p>
+              </div>
+
+              {/* Legal */}
+              <div className={`border-t ${dividerColor} pt-6 space-y-3 text-center`}>
+                <p className={`text-xs ${muted}`}>
+                  By continuing, you agree to Virtual Closet's{' '}
+                  <a href="#" className="underline underline-offset-2 hover:text-white transition-colors">Terms of Service</a>
+                  {' '}and{' '}
+                  <a href="#" className="underline underline-offset-2 hover:text-white transition-colors">Privacy Policy</a>.
+                </p>
+                <p className={`text-xs ${muted}`}>
+                  New here?{' '}
+                  <Link to="/" className="underline underline-offset-2 hover:text-white transition-colors">
+                    View the demo
+                  </Link>
+                </p>
+              </div>
+            </div>
           )}
         </div>
+      </main>
 
-        <p className="text-center text-xs text-stone-400 mt-4">
-          No password needed — just enter your email.
+      {/* ─── FOOTER ─── */}
+      <footer className="py-6 text-center flex-shrink-0">
+        <p className={`text-xs tracking-widest uppercase ${muted}`}>
+          Virtual Closet &copy; {new Date().getFullYear()}
         </p>
-      </div>
+      </footer>
     </div>
   )
 }
