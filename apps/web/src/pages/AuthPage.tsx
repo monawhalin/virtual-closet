@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Mail, Loader2, Lock, ArrowRight, ExternalLink, Sun, Moon } from 'lucide-react'
 import { supabase } from '../lib/supabase'
@@ -26,16 +26,41 @@ export function AuthPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [dark, setDark] = useState(true)
+  const [cooldown, setCooldown] = useState(0) // seconds remaining
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  useEffect(() => {
+    return () => { if (timerRef.current) clearInterval(timerRef.current) }
+  }, [])
+
+  function startCooldown(secs = 60) {
+    setCooldown(secs)
+    timerRef.current = setInterval(() => {
+      setCooldown(prev => {
+        if (prev <= 1) { clearInterval(timerRef.current!); return 0 }
+        return prev - 1
+      })
+    }, 1000)
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!email.trim()) return
+    if (!email.trim() || cooldown > 0) return
     setLoading(true)
     setError(null)
     const { error: authError } = await supabase.auth.signInWithOtp({ email: email.trim() })
     setLoading(false)
     if (authError) {
-      setError(authError.message)
+      const isRateLimit =
+        authError.message.toLowerCase().includes('rate limit') ||
+        authError.message.toLowerCase().includes('too many') ||
+        (authError as { status?: number }).status === 429
+      if (isRateLimit) {
+        setError('rate_limit')
+        startCooldown(60)
+      } else {
+        setError(authError.message)
+      }
     } else {
       setSent(true)
     }
@@ -148,18 +173,31 @@ export function AuthPage() {
                   />
                 </div>
 
-                {error && (
+                {error && error !== 'rate_limit' && (
                   <p className="text-xs text-red-400">{error}</p>
+                )}
+
+                {error === 'rate_limit' && (
+                  <div className="bg-amber-950/40 border border-amber-800/50 rounded-lg px-4 py-3 space-y-1">
+                    <p className="text-xs text-amber-400 font-medium">Too many requests</p>
+                    <p className="text-xs text-amber-400/70 leading-relaxed">
+                      Please wait{' '}
+                      <span className="font-semibold tabular-nums">{cooldown}s</span>
+                      {' '}before requesting another link.
+                    </p>
+                  </div>
                 )}
 
                 {/* Primary CTA */}
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="w-full flex items-center justify-center gap-2.5 bg-white text-stone-900 py-4 rounded-xl text-sm font-medium hover:bg-stone-100 transition-colors disabled:opacity-60"
+                  disabled={loading || cooldown > 0}
+                  className="w-full flex items-center justify-center gap-2.5 bg-white text-stone-900 py-4 rounded-xl text-sm font-medium hover:bg-stone-100 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <><Loader2 size={16} className="animate-spin" /> Sending…</>
+                  ) : cooldown > 0 ? (
+                    <>Try again in {cooldown}s</>
                   ) : (
                     <>Send Magic Link <ArrowRight size={15} strokeWidth={2} /></>
                   )}
