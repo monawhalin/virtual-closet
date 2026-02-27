@@ -1,39 +1,39 @@
 # Virtual Closet
 
-Most people wear 20% of their wardrobe 80% of the time. Virtual Closet helps you break that pattern — catalog your clothes, generate outfit ideas based on what you actually haven't worn lately, and track what you reach for over time.
+Most people wear 20% of their wardrobe 80% of the time. I built this to fix that for myself: take photos of what you own, get outfit suggestions weighted toward the stuff you *haven't* been wearing, and keep track of what you actually reach for.
 
-Runs entirely offline. Cloud sync via Supabase is optional.
+Everything runs offline by default. Cloud sync through Supabase is there if you want it.
 
-## Features
+## ✨ Features
 
-- **Closet catalog** — Upload photos of clothing items; the app auto-suggests category and extracts dominant colors using on-device ML (TensorFlow.js + MobileNet)
-- **Outfit generator** — Picks combinations based on occasion, wear history, and your preferences (avoid recently worn, prefer favorites, capsule-only mode)
-- **Wear tracking** — Mark outfits as worn; item stats update automatically and feed back into generation scoring
-- **Capsule wardrobes** — Group items into named subsets (e.g. "summer", "work") and generate outfits within them
-- **Lock & regenerate** — Pin specific items and regenerate the rest of the outfit around them
-- **Cross-platform** — React/Vite web app + Expo mobile app sharing the same logic
+- **Closet catalog** - Upload photos and the app auto-categorizes them and pulls out dominant colors using on-device ML (TensorFlow.js + MobileNet)
+- **Outfit generator** - Suggests combinations based on occasion, what you've worn recently, favorites, and capsule filters
+- **Wear tracking** - Log when you wear an outfit and those stats feed back into future suggestions
+- **Capsule wardrobes** - Group items into collections like "summer" or "work" and generate outfits within them
+- **Lock & regenerate** - Love the shoes but hate the top? Lock what works and regenerate the rest
+- **Cross-platform** - Web app (React/Vite) and mobile app (Expo) sharing the same core logic
 
 ---
 
-## Monorepo Structure
+## 📁 Monorepo Structure
 
 ```
 apps/
   web/          # React + Vite SPA
-  mobile/       # Expo (React Native) — iOS & Android
+  mobile/       # Expo (React Native), iOS & Android
 packages/
   shared/       # TypeScript types & constants
   outfit-gen/   # Pure outfit generation engine
   ui-shared/    # Image compression, color extraction, sync adapter
 ```
 
-Built with pnpm workspaces + Turborepo. Packages are built before apps.
+pnpm workspaces + Turborepo. Packages build before apps.
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
-**Prerequisites:** Node 18+, pnpm 9.15+. For mobile: Expo CLI + iOS Simulator or Android emulator.
+**Prerequisites:** Node 18+, pnpm 9.15+. For mobile: Expo CLI + simulator/emulator.
 
 ```bash
 git clone https://github.com/monawhalin/virtual-closet.git
@@ -42,7 +42,9 @@ pnpm install
 pnpm dev        # web on :5173, mobile via Expo
 ```
 
-**Supabase (optional)** — the app is fully functional offline. To enable cloud sync:
+### Supabase (optional)
+
+The app works completely offline with no env vars. If you want cloud sync, add your Supabase credentials:
 
 ```bash
 # apps/web/.env.local
@@ -54,11 +56,11 @@ EXPO_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 EXPO_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ```
 
-See `supabase-schema.sql` for the remote schema. `.env.example` files are included in each app.
+Remote schema is in `supabase-schema.sql`. Each app has a `.env.example` for reference.
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
 | | Web | Mobile |
 |---|---|---|
@@ -66,26 +68,26 @@ See `supabase-schema.sql` for the remote schema. `.env.example` files are includ
 | Language | TypeScript (strict) | TypeScript (strict) |
 | Styling | Tailwind CSS 4 | React Navigation + custom theme |
 | Database | Dexie.js v4 (IndexedDB) | expo-sqlite |
-| UI state | Zustand v5 | — |
+| UI state | Zustand v5 | |
 | Routing | React Router v7 | Expo Router v6 |
-| ML | TensorFlow.js + MobileNet v2 | — |
+| ML | TensorFlow.js + MobileNet v2 | |
 | Sync | Supabase (optional) | Supabase (optional) |
 
 ---
 
-## Architecture Notes
+## 🧠 Architecture Notes
 
-**Outfit generation** lives in `packages/outfit-gen` as a pure function — no DB calls, no side effects. It scores candidates by occasion match, wear recency, and favorites, then picks via weighted random selection from the top 60%. Rationale strings explain which rules applied to each outfit.
+**Outfit generation** is a pure function in `packages/outfit-gen`. No DB calls, no side effects. It scores items by occasion match, wear recency, and favorites, then does weighted random selection from the top 60% of candidates. Each outfit comes with rationale strings so you can see *why* it picked what it picked.
 
-**Images** are stored as compressed base64 data URLs (800px, JPEG 0.8) directly in IndexedDB/SQLite — simpler than Blob references for this scale (~80KB/image).
+**Images** get compressed to 800px JPEG (quality 0.8) and stored as base64 data URLs in IndexedDB/SQLite. Simpler than blob references at this scale, and each image ends up around ~80KB.
 
-**Sync** is delta-based: only records with `updatedAt > lastSyncAt` are exchanged. Both platforms implement a common `SyncAdapter` interface so the sync logic in `ui-shared` is platform-agnostic.
+**Sync** is delta-based. Only records where `updatedAt > lastSyncAt` get exchanged. Both platforms implement the same `SyncAdapter` interface so the core sync logic in `ui-shared` doesn't care which platform it's running on.
 
-**TF.js** is lazy-loaded to keep initial bundle fast. The tfjs chunk is ~2MB gzipped — expected for on-device MobileNet inference.
+**TF.js** is lazy-loaded so it doesn't block initial render. The tfjs chunk is ~2MB gzipped, which is just the cost of shipping MobileNet for on-device inference.
 
 ---
 
-## Commands
+## 📋 Commands
 
 ```bash
 pnpm dev          # Start all dev servers
