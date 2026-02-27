@@ -1,5 +1,5 @@
-import { type ReactNode, useEffect, useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useNavigate, useLocation, Outlet } from 'react-router-dom'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from '../../lib/supabase'
 
@@ -8,11 +8,7 @@ const AUTH_ENABLED =
   Boolean(import.meta.env.VITE_SUPABASE_URL) &&
   Boolean(import.meta.env.VITE_SUPABASE_ANON_KEY)
 
-interface AuthGuardProps {
-  children: ReactNode
-}
-
-export function AuthGuard({ children }: AuthGuardProps) {
+export function AuthGuard() {
   const navigate = useNavigate()
   const location = useLocation()
   const [session, setSession] = useState<Session | null | 'loading'>('loading')
@@ -57,5 +53,5 @@ export function AuthGuard({ children }: AuthGuardProps) {
     return null
   }
 
-  return <>{children}</>
+  return <Outlet />
 }
