@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Mail, Loader2, Lock, ArrowRight, ArrowLeft, Sun, Moon } from 'lucide-react'
+import { Mail, Loader2, Lock, ArrowRight, ExternalLink, Sun, Moon } from 'lucide-react'
 import { supabase } from '../lib/supabase'
 
 function HangerIcon({ className }: { className?: string }) {
@@ -74,37 +74,43 @@ export function AuthPage() {
 
           {sent ? (
             /* ── Check your inbox state ── */
-            <div className="text-center space-y-6">
-              <div className="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mx-auto">
-                <Mail size={26} className="text-blue-400" strokeWidth={1.5} />
+            <div className="text-center space-y-8">
+              {/* Icon */}
+              <div className="w-16 h-16 rounded-full bg-stone-800 flex items-center justify-center mx-auto">
+                <Mail size={26} className="text-white" strokeWidth={1.5} />
               </div>
 
-              <div className="space-y-3">
+              {/* Heading + body */}
+              <div className="space-y-4">
                 <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight">
                   Check your inbox.
                 </h1>
-                <p className={`${muted} leading-relaxed text-sm`}>
-                  We've sent a magic link to{' '}
-                  <span className={text}>{email}</span>.
+                <p className={`${muted} text-sm leading-relaxed`}>
+                  We've sent a magic link to
                   <br />
-                  Click the link to sign in instantly.
+                  <span className={`${text} font-medium`}>{email}</span>.
+                  {' '}Click the link to sign in instantly.
                 </p>
               </div>
 
-              <button
-                onClick={() => setSent(false)}
-                className={`w-full py-4 rounded-xl border ${dividerColor} ${muted} hover:${text} text-sm font-medium transition-colors`}
+              {/* Open email app */}
+              <a
+                href="mailto:"
+                className="w-full flex items-center justify-center gap-2.5 bg-white text-stone-900 py-4 rounded-xl text-sm font-medium hover:bg-stone-100 transition-colors"
               >
-                Resend Link
-              </button>
+                Open Email App <ExternalLink size={14} strokeWidth={2} />
+              </a>
 
-              <button
-                onClick={() => { setSent(false); setEmail('') }}
-                className={`flex items-center gap-1.5 mx-auto text-sm ${muted} hover:text-white transition-colors`}
-              >
-                <ArrowLeft size={14} />
-                Back to Login
-              </button>
+              {/* Resend */}
+              <p className={`text-sm ${muted}`}>
+                Didn't receive the email?{' '}
+                <button
+                  onClick={() => setSent(false)}
+                  className="underline underline-offset-2 hover:text-white transition-colors"
+                >
+                  Resend link
+                </button>
+              </p>
             </div>
 
           ) : (
