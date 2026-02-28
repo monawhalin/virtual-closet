@@ -1,8 +1,12 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '../db/db'
 import type { ClosetItem, FilterState } from '@vc/shared'
+import type { ClosetSort } from '../store/uiStore'
 
-export function useClosetItems(filters: FilterState): ClosetItem[] | undefined {
+export function useClosetItems(
+  filters: FilterState,
+  sort: ClosetSort = 'recent',
+): ClosetItem[] | undefined {
   return useLiveQuery(
     async () => {
       let items = await db.items.where('status').equals('active').toArray()
@@ -30,9 +34,17 @@ export function useClosetItems(filters: FilterState): ClosetItem[] | undefined {
         )
       }
 
-      return items.sort((a, b) => b.createdAt - a.createdAt)
+      if (sort === 'least-worn') {
+        items.sort((a, b) => a.wearCount - b.wearCount)
+      } else if (sort === 'category') {
+        items.sort((a, b) => a.category.localeCompare(b.category))
+      } else {
+        items.sort((a, b) => b.createdAt - a.createdAt)
+      }
+
+      return items
     },
-    [filters.category, filters.color, filters.season, filters.tag, filters.search]
+    [filters.category, filters.color, filters.season, filters.tag, filters.search, sort]
   )
 }
 

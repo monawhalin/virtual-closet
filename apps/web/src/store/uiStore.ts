@@ -7,6 +7,8 @@ interface Toast {
   type: 'success' | 'error' | 'info'
 }
 
+export type ClosetSort = 'recent' | 'least-worn' | 'category'
+
 const DEFAULT_FILTERS: FilterState = {
   category: '',
   color: '',
@@ -20,6 +22,10 @@ interface UIStore {
   filters: FilterState
   setFilter: <K extends keyof FilterState>(key: K, value: FilterState[K]) => void
   clearFilters: () => void
+
+  // Closet sort
+  closetSort: ClosetSort
+  setClosetSort: (sort: ClosetSort) => void
 
   // Upload modal
   uploadModalOpen: boolean
@@ -51,6 +57,9 @@ export const useUIStore = create<UIStore>((set, get) => ({
     set(state => ({ filters: { ...state.filters, [key]: value } })),
 
   clearFilters: () => set({ filters: { ...DEFAULT_FILTERS } }),
+
+  closetSort: 'recent',
+  setClosetSort: (sort) => set({ closetSort: sort }),
 
   uploadModalOpen: false,
   setUploadModalOpen: (v) => set({ uploadModalOpen: v }),

@@ -1,102 +1,114 @@
-import { Plus, X, SlidersHorizontal } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronDown, SlidersHorizontal } from 'lucide-react'
 import { useClosetItems } from '../hooks/useClosetItems'
 import { useUIStore } from '../store/uiStore'
+import type { ClosetSort } from '../store/uiStore'
 import { ItemGrid } from '../components/closet/ItemGrid'
 import { FilterSidebar } from '../components/closet/FilterSidebar'
 import { FilterDrawer } from '../components/closet/FilterDrawer'
 import { UploadModal } from '../components/closet/UploadModal'
-import { Button } from '../components/ui/Button'
+
+const SORT_LABELS: Record<ClosetSort, string> = {
+  recent: 'Recently Added',
+  'least-worn': 'Least Worn',
+  category: 'Category',
+}
+
+const PAGE_SIZE = 20
 
 export function ClosetPage() {
   const {
     filters,
-    setFilter,
-    setUploadModalOpen,
-    onboardingDismissed,
-    dismissOnboarding,
+    clearFilters,
+    closetSort,
+    setClosetSort,
     filterDrawerOpen,
     setFilterDrawerOpen,
   } = useUIStore()
-  const items = useClosetItems(filters)
+
+  const items = useClosetItems(filters, closetSort)
+  const [displayLimit, setDisplayLimit] = useState(PAGE_SIZE)
 
   const itemCount = items?.length ?? 0
-  const showOnboarding = !onboardingDismissed && (items?.length ?? 0) > 0 && (items?.length ?? 0) < 8
-
-  // Count active filters (excluding search) for the mobile badge
+  const displayedItems = items?.slice(0, displayLimit)
+  const hasMore = itemCount > displayLimit
   const activeFilterCount = [filters.category, filters.color, filters.season, filters.tag].filter(Boolean).length
 
   return (
-    <div className="p-4 md:p-6 space-y-4 md:space-y-5">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-stone-900">My Closet</h1>
-          {items !== undefined && (
-            <p className="text-sm text-stone-400 mt-0.5">{itemCount} item{itemCount !== 1 ? 's' : ''}</p>
-          )}
-        </div>
-        <Button onClick={() => setUploadModalOpen(true)}>
-          <Plus size={16} /> Add Item
-        </Button>
-      </div>
+    <div className="flex min-h-full relative">
+      {/* ── Main content ─────────────────────────────── */}
+      <div className="flex-1 min-w-0 flex flex-col">
 
-      {/* Onboarding banner */}
-      {showOnboarding && (
-        <div className="flex items-start justify-between bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
-          <div>
-            <p className="text-sm font-medium text-amber-800">Building your closet</p>
-            <p className="text-xs text-amber-700 mt-0.5">
-              For best outfit suggestions, aim for 5+ tops, 3+ bottoms, and 2+ pairs of shoes.
-            </p>
+        {/* Sticky sort / filter bar */}
+        <div className="sticky top-0 z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-6 md:px-10 py-4 border-b border-stone-200 dark:border-border-dark bg-stone-50/95 dark:bg-background-dark/95 backdrop-blur-sm">
+          {/* Sort pills */}
+          <div className="flex gap-3 flex-wrap">
+            {(Object.keys(SORT_LABELS) as ClosetSort[]).map(sort => (
+              <button
+                key={sort}
+                onClick={() => setClosetSort(sort)}
+                className={[
+                  'flex h-9 shrink-0 items-center gap-x-2 rounded-full border px-4 text-sm font-medium transition-colors',
+                  closetSort === sort
+                    ? 'border-primary bg-primary/10 text-primary'
+                    : 'border-stone-200 dark:border-border-dark bg-white dark:bg-surface-dark text-stone-700 dark:text-slate-200 hover:border-primary dark:hover:border-primary',
+                ].join(' ')}
+              >
+                {SORT_LABELS[sort]}
+                <ChevronDown size={14} className="text-stone-400 dark:text-slate-500" />
+              </button>
+            ))}
           </div>
-          <button onClick={dismissOnboarding} className="text-amber-400 hover:text-amber-700 ml-4 shrink-0">
-            <X size={16} />
-          </button>
-        </div>
-      )}
 
-      {/* Search + mobile filter chip row */}
-      <div className="flex gap-2 items-center">
-        <div className="relative flex-1">
-          <input
-            type="text"
-            value={filters.search}
-            onChange={e => setFilter('search', e.target.value)}
-            placeholder="Search by tag, brand, category…"
-            className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 bg-white"
-          />
-          {filters.search && (
+          {/* Right: item count + filter trigger */}
+          <div className="flex items-center gap-4 text-stone-500 dark:text-slate-400 text-sm shrink-0">
+            {items !== undefined && (
+              <span>{itemCount} Item{itemCount !== 1 ? 's' : ''}</span>
+            )}
+            <div className="h-4 w-px bg-stone-200 dark:bg-border-dark" />
+            {/* Mobile: open FilterDrawer */}
             <button
-              onClick={() => setFilter('search', '')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
+              onClick={() => setFilterDrawerOpen(true)}
+              className="lg:hidden flex items-center gap-2 hover:text-primary transition-colors font-medium"
             >
-              <X size={14} />
+              <SlidersHorizontal size={18} />
+              Filters
+              {activeFilterCount > 0 && (
+                <span className="size-4 rounded-full bg-primary text-white text-[9px] font-bold flex items-center justify-center">
+                  {activeFilterCount}
+                </span>
+              )}
             </button>
+            {/* Desktop: clear or label for the right panel */}
+            <button
+              onClick={activeFilterCount > 0 ? clearFilters : undefined}
+              className="hidden lg:flex items-center gap-2 hover:text-primary transition-colors font-medium"
+            >
+              <SlidersHorizontal size={18} />
+              {activeFilterCount > 0 ? 'Clear Filters' : 'Filters'}
+            </button>
+          </div>
+        </div>
+
+        {/* Grid */}
+        <div className="p-6 md:p-10">
+          <ItemGrid items={displayedItems} />
+
+          {hasMore && (
+            <div className="flex justify-center mt-12 mb-6">
+              <button
+                onClick={() => setDisplayLimit(l => l + PAGE_SIZE)}
+                className="text-stone-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors border border-stone-300 dark:border-border-dark rounded-full px-6 py-2 hover:border-primary"
+              >
+                Load More Items
+              </button>
+            </div>
           )}
         </div>
-        {/* Filter chip — mobile only */}
-        <button
-          onClick={() => setFilterDrawerOpen(true)}
-          className="md:hidden relative flex items-center gap-1.5 px-3 py-2.5 rounded-xl border border-stone-200 bg-white text-sm text-stone-600 hover:border-stone-400 transition-colors shrink-0"
-        >
-          <SlidersHorizontal size={15} />
-          Filters
-          {activeFilterCount > 0 && (
-            <span className="absolute -top-1.5 -right-1.5 h-4 w-4 rounded-full bg-stone-900 text-white text-[9px] font-bold flex items-center justify-center">
-              {activeFilterCount}
-            </span>
-          )}
-        </button>
       </div>
 
-      {/* Content */}
-      <div className="flex gap-6">
-        {/* Desktop: sidebar filter */}
-        <FilterSidebar className="hidden md:block" />
-        <div className="flex-1 min-w-0">
-          <ItemGrid items={items} />
-        </div>
-      </div>
+      {/* ── Right filter panel — desktop lg+ ─────────── */}
+      <FilterSidebar className="hidden lg:flex w-80 shrink-0 self-start sticky top-0 h-screen overflow-y-auto border-l border-stone-200 dark:border-border-dark" />
 
       {/* Mobile filter drawer */}
       <FilterDrawer open={filterDrawerOpen} onClose={() => setFilterDrawerOpen(false)} />
